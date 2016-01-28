@@ -350,9 +350,13 @@ static int virLXCCgroupSetupDeviceACL(virDomainDefPtr def,
         {'c', LXC_DEV_MAJ_MEMORY, LXC_DEV_MIN_FULL},
         {'c', LXC_DEV_MAJ_MEMORY, LXC_DEV_MIN_RANDOM},
         {'c', LXC_DEV_MAJ_MEMORY, LXC_DEV_MIN_URANDOM},
-        {'c', LXC_DEV_MAJ_TTY, LXC_DEV_MIN_TTY},
-        {'c', LXC_DEV_MAJ_TTY, LXC_DEV_MIN_PTMX},
-        {'c', LXC_DEV_MAJ_FUSE, LXC_DEV_MIN_FUSE},
+        {'c', LXC_DEV_MAJ_TTY, 0},
+        {'c', LXC_DEV_MAJ_TTY, 1},
+        {'c', LXC_DEV_MAJ_ALT_TTY, LXC_DEV_MIN_TTY},
+        {'c', LXC_DEV_MAJ_ALT_TTY, LXC_DEV_MIN_CONSOLE},
+        {'c', LXC_DEV_MAJ_ALT_TTY, LXC_DEV_MIN_PTMX},
+        {'c', LXC_DEV_MAJ_MISC, LXC_DEV_MIN_TUN},
+        {'c', LXC_DEV_MAJ_MISC, LXC_DEV_MIN_FUSE},
         {0,   0, 0}};
 
     if (virCgroupDenyAllDevices(cgroup) < 0)

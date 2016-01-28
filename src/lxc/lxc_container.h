@@ -39,14 +39,17 @@ enum {
 # define LXC_DEV_MIN_RANDOM  8
 # define LXC_DEV_MIN_URANDOM 9
 
-# define LXC_DEV_MAJ_TTY     5
+# define LXC_DEV_MAJ_TTY     4
+
+# define LXC_DEV_MAJ_ALT_TTY 5
 # define LXC_DEV_MIN_TTY     0
 # define LXC_DEV_MIN_CONSOLE 1
 # define LXC_DEV_MIN_PTMX    2
 
 # define LXC_DEV_MAJ_PTY     136
 
-# define LXC_DEV_MAJ_FUSE    10
+# define LXC_DEV_MAJ_MISC    10
+# define LXC_DEV_MIN_TUN     200
 # define LXC_DEV_MIN_FUSE    229
 
 int lxcContainerSendContinue(int control);
